@@ -31,7 +31,7 @@ public class PlaywrightFactory {
 //        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
 //        launchOptions.setHeadless(true);
 //        launchOptions.setSlowMo();
-        browser.set(getPlaywright().chromium().launch();
+        browser.set(getPlaywright().chromium().launch());
         browserContext.set(getBrowser().newContext());
         page.set(getBrowserContext().newPage());
         getPage().navigate("https://www.myntra.com/");
