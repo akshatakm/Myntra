@@ -35,6 +35,7 @@ public class PlaywrightFactory {
         browserContext.set(getBrowser().newContext());
         page.set(getBrowserContext().newPage());
         getPage().navigate("https://www.myntra.com/");
+        System.out.println(getPage().title());
         return getPage();
     }
 
