@@ -25,13 +25,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-
+    - name: Ensure browsers are installed
+      run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
+      
     - name: Run tests
-      run: mvn -X clean test -DsuiteXmlFile=./testngxml/test.xml
+      run: mvn clean test -DsuiteXmlFile=./testngxml/test.xml
       
     - name: Upload Extent HTML report
       uses: actions/upload-artifact@v4
