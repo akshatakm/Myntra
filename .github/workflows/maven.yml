@@ -25,6 +25,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
     - name: Run tests
       run: mvn -X clean test -DsuiteXmlFile=./testngxml/test.xml
       
